@@ -1,0 +1,22 @@
+mappings:
+  - match: "data_pipeline.*.*.row_count"
+    name: "pipeline_row_count"
+    labels:
+      layer:   "$1"
+      dataset: "$2"
+
+  - match: "data_pipeline.quality.*.pass_rate"
+    name: "pipeline_quality_pass_rate"
+    labels:
+      dataset: "$1"
+
+  - match: "data_pipeline.task.*.duration_seconds"
+    name: "pipeline_task_duration_seconds"
+    labels:
+      task: "$1"
+
+  - match: "data_pipeline.failure.*.*"
+    name: "pipeline_failure_total"
+    labels:
+      dag_id:  "$1"
+      task_id: "$2"
